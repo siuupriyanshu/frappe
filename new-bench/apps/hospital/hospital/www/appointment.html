@@ -127,45 +127,58 @@
                 <div class="col-lg-6">
                     <div class="bg-light text-center rounded p-5">
                         <h1 class="mb-4">Book An Appointment</h1>
-                        <form>
+                        <form id="appointment-form" method="post" action="/appointment">
+                            <input type="hidden" name="csrf_token" value="{{ frappe.session.csrf_token }}">
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
-                                    <select class="form-select bg-white border-0" style="height: 55px;">
-                                        <option selected>Choose Department</option>
-                                        <option value="1">Department 1</option>
-                                        <option value="2">Department 2</option>
-                                        <option value="3">Department 3</option>
+                                    <select id="department" name="department" class="form-select bg-white border-0" style="height: 55px;"
+                                        required>
+                                        <option value="" selected disabled>Choose Department</option>
+                                        {% for department in departments %}
+                                        <option value="{{ department }}" {% if form_values.department == department %}selected{% endif %}>{{ department }}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <select class="form-select bg-white border-0" style="height: 55px;">
-                                        <option selected>Select Doctor</option>
-                                        <option value="1">Doctor 1</option>
-                                        <option value="2">Doctor 2</option>
-                                        <option value="3">Doctor 3</option>
+                                    <select id="doctor" name="doctor" class="form-select bg-white border-0" style="height: 55px;" required>
+                                        <option value="" selected disabled>Select Doctor</option>
+                                        {% for doctor in doctors %}
+                                        <option value="{{ doctor }}" {% if form_values.doctor == doctor %}selected{% endif %}>{{ doctor }}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control bg-white border-0" placeholder="Your Name"
-                                        style="height: 55px;">
+                                    <input id="name1" name="name1" type="text" class="form-control bg-white border-0"
+                                        placeholder="Your Name" style="height: 55px;" value="{{ form_values.name1 or '' }}" required>
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control bg-white border-0" placeholder="Your Email"
-                                        style="height: 55px;">
+                                    <input id="email" name="email" type="email" class="form-control bg-white border-0"
+                                        placeholder="Your Email" style="height: 55px;" value="{{ form_values.email or '' }}" required>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="date" id="date" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-white border-0 datetimepicker-input"
-                                            placeholder="Date" data-target="#date" data-toggle="datetimepicker"
-                                            style="height: 55px;">
+                                        <input id="appointment_date" name="appointment_date" type="text"
+                                            class="form-control bg-white border-0 datetimepicker-input" placeholder="Date"
+                                            data-target="#date" data-toggle="datetimepicker" style="height: 55px;"
+                                            value="{{ form_values.appointment_date or '' }}" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="time" id="time" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-white border-0 datetimepicker-input"
-                                            placeholder="Time" data-target="#time" data-toggle="datetimepicker"
-                                            style="height: 55px;">
+                                        <input id="appointment_time" name="appointment_time" type="text"
+                                            class="form-control bg-white border-0 datetimepicker-input" placeholder="Time"
+                                            data-target="#time" data-toggle="datetimepicker" style="height: 55px;"
+                                            value="{{ form_values.appointment_time or '' }}" required>
                                     </div>
+                                </div>
+                                <div class="col-12">
+                                    {% if appointment_success %}
+                                    <div id="appointment-alert" class="small text-success">{{ appointment_success }}</div>
+                                    {% elif appointment_error %}
+                                    <div id="appointment-alert" class="small text-danger">{{ appointment_error }}</div>
+                                    {% else %}
+                                    <div id="appointment-alert" class="small"></div>
+                                    {% endif %}
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-primary w-100 py-3" type="submit">Make An

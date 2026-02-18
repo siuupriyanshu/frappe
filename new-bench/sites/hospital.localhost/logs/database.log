@@ -2754,3 +2754,11 @@ index creation(creation))
 ALTER TABLE `tabappointment` ADD COLUMN `name1` varchar(140)
 2026-02-18 15:31:02,796 WARNING database DDL Query made to DB:
 ALTER TABLE `tabappointment` ADD COLUMN `email` varchar(140)
+2026-02-18 16:14:16,286 WARNING database DDL Query made to DB:
+ALTER TABLE `tabappointment` ADD COLUMN `department` varchar(140)
+2026-02-18 16:15:00,537 WARNING database DDL Query made to DB:
+ALTER TABLE `tabappointment` ADD COLUMN `appointment_date` date
+2026-02-18 16:15:17,424 WARNING database DDL Query made to DB:
+ALTER TABLE `tabappointment` ADD COLUMN `appointment_time` time(6)
+2026-02-18 16:22:37,265 WARNING database DDL Query made to DB:
+ALTER TABLE `tabappointment` ADD COLUMN `doctor` varchar(140)

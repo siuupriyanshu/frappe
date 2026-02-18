@@ -89,3 +89,50 @@
 2026-02-18 15:50:44,552 INFO /home/levy/.local/bin/bench migrate hospital.localhost
 2026-02-18 15:51:04,233 INFO /home/levy/.local/bin/bench migrate hospital
 2026-02-18 15:51:42,574 INFO /home/levy/.local/bin/bench --site hospital.localhost migrate
+2026-02-18 16:30:29,143 INFO /home/levy/.local/bin/bench start
+2026-02-18 16:30:29,777 INFO /home/levy/.local/bin/bench schedule
+2026-02-18 16:30:29,780 INFO /home/levy/.local/bin/bench watch
+2026-02-18 16:30:29,783 INFO /home/levy/.local/bin/bench serve --port 8001
+2026-02-18 16:30:29,881 INFO /home/levy/.local/bin/bench worker
+2026-02-18 16:35:34,322 INFO /home/levy/.local/bin/bench --site hospital.localhost migrate
+2026-02-18 16:38:37,828 INFO /home/levy/.local/bin/bench --site hospital.localhost export-fixtures
+2026-02-18 16:38:43,247 INFO /home/levy/.local/bin/bench --site hospital.localhost migrate
+2026-02-18 16:40:27,997 INFO /home/levy/.local/bin/bench build
+2026-02-18 16:43:32,278 INFO /home/levy/.local/bin/bench --site hospital.localhost mariadb
+2026-02-18 16:45:07,937 INFO /home/levy/.local/bin/bench --site hospital.localhost mariadb
+2026-02-18 16:46:52,779 INFO /home/levy/.local/bin/bench start
+2026-02-18 16:46:53,375 INFO /home/levy/.local/bin/bench schedule
+2026-02-18 16:46:53,377 INFO /home/levy/.local/bin/bench serve --port 8001
+2026-02-18 16:46:53,456 INFO /home/levy/.local/bin/bench watch
+2026-02-18 16:46:53,515 INFO /home/levy/.local/bin/bench worker
+2026-02-18 17:00:05,034 INFO /home/levy/.local/bin/bench start
+2026-02-18 17:00:05,617 INFO /home/levy/.local/bin/bench schedule
+2026-02-18 17:00:05,667 INFO /home/levy/.local/bin/bench worker
+2026-02-18 17:00:05,733 INFO /home/levy/.local/bin/bench serve --port 8001
+2026-02-18 17:00:05,864 INFO /home/levy/.local/bin/bench watch
+2026-02-18 17:05:51,876 INFO /home/levy/.local/bin/bench --site hospital.localhost execute hospital.www.appointment.book_appointment --kwargs {"department":"Cardiology","doctor":"Dr. Test","name1":"Test User","email":"test@example.com","appointment_date":"2026-02-18","appointment_time":"10:30"}
+2026-02-18 17:09:48,774 INFO /home/levy/.local/bin/bench build
+2026-02-18 17:14:55,003 INFO /home/levy/.local/bin/bench build
+2026-02-18 17:14:57,908 INFO /home/levy/.local/bin/bench start
+2026-02-18 17:14:58,592 INFO /home/levy/.local/bin/bench serve --port 8001
+2026-02-18 17:14:58,632 INFO /home/levy/.local/bin/bench worker
+2026-02-18 17:14:58,701 INFO /home/levy/.local/bin/bench schedule
+2026-02-18 17:14:58,875 INFO /home/levy/.local/bin/bench watch
+2026-02-18 17:39:58,471 INFO /home/levy/.local/bin/bench --site hospital.localhost clear-cache
+2026-02-18 17:41:52,718 INFO /home/levy/.local/bin/bench start
+2026-02-18 17:41:53,332 INFO /home/levy/.local/bin/bench worker
+2026-02-18 17:41:53,337 INFO /home/levy/.local/bin/bench schedule
+2026-02-18 17:41:53,356 INFO /home/levy/.local/bin/bench serve --port 8001
+2026-02-18 17:41:53,489 INFO /home/levy/.local/bin/bench watch
+2026-02-18 17:45:55,110 INFO /home/levy/.local/bin/bench restart
+2026-02-18 17:46:05,289 INFO /home/levy/.local/bin/bench start
+2026-02-18 17:46:05,869 INFO /home/levy/.local/bin/bench watch
+2026-02-18 17:46:05,901 INFO /home/levy/.local/bin/bench worker
+2026-02-18 17:46:05,986 INFO /home/levy/.local/bin/bench schedule
+2026-02-18 17:46:06,067 INFO /home/levy/.local/bin/bench serve --port 8001
+2026-02-18 18:00:01,459 INFO /home/levy/.local/bin/bench --verbose --site all backup
+2026-02-18 18:00:14,581 INFO /home/levy/.local/bin/bench start
+2026-02-18 18:00:15,134 INFO /home/levy/.local/bin/bench serve --port 8001
+2026-02-18 18:00:15,224 INFO /home/levy/.local/bin/bench watch
+2026-02-18 18:00:15,238 INFO /home/levy/.local/bin/bench schedule
+2026-02-18 18:00:15,325 INFO /home/levy/.local/bin/bench worker

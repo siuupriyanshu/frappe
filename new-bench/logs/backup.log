@@ -1,0 +1,6 @@
+set -o pipefail; /usr/bin/mariadb-dump --user=_1c1414713a5828d2 --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false _1c1414713a5828d2 | /usr/bin/gzip >> ./hospital.localhost/private/backups/20260218_180002-hospital_localhost-database.sql.gz
+
+Backup Summary for hospital.localhost at 2026-02-18 18:00:03.168389
+Config  : /home/levy/projects/frappe/new-bench/sites/hospital.localhost/private/backups/20260218_180002-hospital_localhost-site_config_backup.json 152.0B
+Database: /home/levy/projects/frappe/new-bench/sites/hospital.localhost/private/backups/20260218_180002-hospital_localhost-database.sql.gz 247.4KiB
+Backup for Site hospital.localhost has been successfully completed
