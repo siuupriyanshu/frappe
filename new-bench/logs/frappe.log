@@ -1,0 +1,3 @@
+2026-02-18 15:22:53,767 ERROR frappe New Exception collected in error log
+Site: hospital.localhost
+Form Dict: {'name': 'index.html', 'cmd': 'frappe.desk.desk_page.getpage'}
