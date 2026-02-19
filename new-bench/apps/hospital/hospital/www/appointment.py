@@ -1,6 +1,7 @@
 import frappe
 from frappe import _
 from frappe.utils import getdate, get_time
+from hospital.www.page_context import set_common_context
 
 
 def _get_appointment_doctype_name() -> str | None:
@@ -20,7 +21,7 @@ def _get_select_options(doctype_name: str, fieldname: str) -> list[str]:
 
 
 def get_context(context: dict) -> dict:
-	context.no_cache = 1
+	set_common_context(context, "appointment", "Appointment - Medinova")
 	context.appointment_success = None
 	context.appointment_error = None
 	context.form_values = {}

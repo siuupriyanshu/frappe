@@ -1,0 +1,34 @@
+<!-- Navbar Start -->
+<div class="container-fluid sticky-top bg-white shadow-sm{% if current_page == 'home' %}{% else %} mb-5{% endif %}">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+            <a href="{{ routes.home }}" class="navbar-brand">
+                <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>Medinova</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="{{ routes.home }}" class="nav-item nav-link {% if current_page == 'home' %}active{% endif %}">Home</a>
+                    <a href="{{ routes.about }}" class="nav-item nav-link {% if current_page == 'about' %}active{% endif %}">About</a>
+                    <a href="{{ routes.service }}" class="nav-item nav-link {% if current_page == 'service' %}active{% endif %}">Service</a>
+                    <a href="{{ routes.price }}" class="nav-item nav-link {% if current_page == 'price' %}active{% endif %}">Pricing</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle {% if current_page in ['blog', 'detail', 'team', 'testimonial', 'appointment', 'search'] %}active{% endif %}" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{{ routes.blog }}" class="dropdown-item {% if current_page == 'blog' %}active{% endif %}">Blog Grid</a>
+                            <a href="{{ routes.detail }}" class="dropdown-item {% if current_page == 'detail' %}active{% endif %}">Blog Detail</a>
+                            <a href="{{ routes.team }}" class="dropdown-item {% if current_page == 'team' %}active{% endif %}">The Team</a>
+                            <a href="{{ routes.testimonial }}" class="dropdown-item {% if current_page == 'testimonial' %}active{% endif %}">Testimonial</a>
+                            <a href="{{ routes.appointment }}" class="dropdown-item {% if current_page == 'appointment' %}active{% endif %}">Appointment</a>
+                            <a href="{{ routes.search }}" class="dropdown-item {% if current_page == 'search' %}active{% endif %}">Search</a>
+                        </div>
+                    </div>
+                    <a href="{{ routes.contact }}" class="nav-item nav-link {% if current_page == 'contact' %}active{% endif %}">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->
