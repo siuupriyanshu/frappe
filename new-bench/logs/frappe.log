@@ -34,3 +34,27 @@ Form Dict: {'cmd': 'file_uploader.bundle.O7TBGCQ5.css.map'}
 2026-02-18 17:31:45,923 ERROR frappe New Exception collected in error log
 Site: hospital.localhost
 Form Dict: {'name': 'index.html', 'cmd': 'frappe.desk.desk_page.getpage'}
+2026-02-18 18:07:06,786 ERROR frappe New Exception collected in error log
+Site: hospital.localhost
+Form Dict: {'name': 'index.html', 'cmd': 'frappe.desk.desk_page.getpage'}
+2026-02-19 13:53:01,751 ERROR frappe New Exception collected in error log
+Site: hospital.localhost
+Form Dict: {'name': 'index.html', 'cmd': 'frappe.desk.desk_page.getpage'}
+2026-02-19 13:53:13,368 ERROR frappe New Exception collected in error log
+Site: hospital.localhost
+Form Dict: {'name': 'index.html', 'cmd': 'frappe.desk.desk_page.getpage'}
+2026-02-19 13:55:23,838 ERROR frappe New Exception collected in error log
+Site: hospital.localhost
+Form Dict: {'name': 'index.html', 'cmd': 'frappe.desk.desk_page.getpage'}
+2026-02-19 13:58:02,073 ERROR frappe New Exception collected in error log
+Site: hospital.localhost
+Form Dict: {'name': 'index.html', 'cmd': 'frappe.desk.desk_page.getpage'}
+2026-02-19 13:58:04,564 ERROR frappe New Exception collected in error log
+Site: hospital.localhost
+Form Dict: {'name': 'index.html', 'cmd': 'frappe.desk.desk_page.getpage'}
+2026-02-19 14:17:53,970 ERROR frappe New Exception collected in error log
+Site: hospital.localhost
+Form Dict: {'name': 'index', 'cmd': 'frappe.desk.desk_page.getpage'}
+2026-02-19 14:18:02,420 ERROR frappe New Exception collected in error log
+Site: hospital.localhost
+Form Dict: {'name': 'index.html', 'cmd': 'frappe.desk.desk_page.getpage'}
