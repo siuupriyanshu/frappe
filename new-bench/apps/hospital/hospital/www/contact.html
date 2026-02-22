@@ -53,23 +53,30 @@
             <div class="row justify-content-center position-relative" style="margin-top: -200px; z-index: 1;">
                 <div class="col-lg-8">
                     <div class="bg-white rounded p-5 m-5 mb-0">
-                        <form>
+                        {% if contact_success %}
+                        <div class="alert alert-success" role="alert">{{ contact_success }}</div>
+                        {% endif %}
+                        {% if contact_error %}
+                        <div class="alert alert-danger" role="alert">{{ contact_error }}</div>
+                        {% endif %}
+                        <form method="post" action="/contact">
+                            <input type="hidden" name="csrf_token" value="{{ frappe.session.csrf_token }}">
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Name"
-                                        style="height: 55px;">
+                                    <input type="text" name="name1" class="form-control bg-light border-0" placeholder="Your Name"
+                                        value="{{ form_values.name1 or '' }}" style="height: 55px;" required>
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control bg-light border-0" placeholder="Your Email"
-                                        style="height: 55px;">
+                                    <input type="email" name="email" class="form-control bg-light border-0" placeholder="Your Email"
+                                        value="{{ form_values.email or '' }}" style="height: 55px;" required>
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Subject"
-                                        style="height: 55px;">
+                                    <input type="text" name="subject" class="form-control bg-light border-0" placeholder="Subject"
+                                        value="{{ form_values.subject or '' }}" style="height: 55px;" required>
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control bg-light border-0" rows="5"
-                                        placeholder="Message"></textarea>
+                                    <textarea name="message" class="form-control bg-light border-0" rows="5"
+                                        placeholder="Message" required>{{ form_values.message or '' }}</textarea>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>

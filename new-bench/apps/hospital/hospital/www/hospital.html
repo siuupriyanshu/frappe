@@ -74,97 +74,37 @@
 
 
     <!-- Services Start -->
-    <div class="container-fluid py-5">
+  <div class="container-fluid py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5" style="max-width: 500px;">
                 <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Services</h5>
                 <h1 class="display-4">Excellent Medical Services</h1>
             </div>
             <div class="row g-5">
+                {% if services %}
+                {% for service in services %}
                 <div class="col-lg-4 col-md-6">
                     <div
                         class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
                         <div class="service-icon mb-4">
                             <i class="fa fa-2x fa-user-md text-white"></i>
                         </div>
-                        <h4 class="mb-3">Emergency Care</h4>
-                        <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo
-                            elitr dolor amet sit</p>
+                        <h4 class="mb-3">{{ service.title or service.emergency_care }}</h4>
+                        <p class="m-0">{{ service.description or "Service details will be available soon." }}</p>
                         <a class="btn btn-lg btn-primary rounded-pill" href="#!">
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div
-                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fa fa-2x fa-procedures text-white"></i>
-                        </div>
-                        <h4 class="mb-3">Operation & Surgery</h4>
-                        <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo
-                            elitr dolor amet sit</p>
-                        <a class="btn btn-lg btn-primary rounded-pill" href="#!">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                {% endfor %}
+                {% else %}
+                <div class="col-12">
+                    <div class="service-item bg-light rounded text-center p-4">
+                        <h4 class="mb-3">No services available</h4>
+                        <p class="m-0">Please check back later.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div
-                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fa fa-2x fa-stethoscope text-white"></i>
-                        </div>
-                        <h4 class="mb-3">Outdoor Checkup</h4>
-                        <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo
-                            elitr dolor amet sit</p>
-                        <a class="btn btn-lg btn-primary rounded-pill" href="#!">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div
-                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fa fa-2x fa-ambulance text-white"></i>
-                        </div>
-                        <h4 class="mb-3">Ambulance Service</h4>
-                        <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo
-                            elitr dolor amet sit</p>
-                        <a class="btn btn-lg btn-primary rounded-pill" href="#!">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div
-                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fa fa-2x fa-pills text-white"></i>
-                        </div>
-                        <h4 class="mb-3">Medicine & Pharmacy</h4>
-                        <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo
-                            elitr dolor amet sit</p>
-                        <a class="btn btn-lg btn-primary rounded-pill" href="#!">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div
-                        class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fa fa-2x fa-microscope text-white"></i>
-                        </div>
-                        <h4 class="mb-3">Blood Testing</h4>
-                        <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo
-                            elitr dolor amet sit</p>
-                        <a class="btn btn-lg btn-primary rounded-pill" href="#!">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -253,94 +193,31 @@
                 <h1 class="display-4">Awesome Medical Programs</h1>
             </div>
             <div class="owl-carousel price-carousel position-relative" style="padding: 0 45px 45px 45px;">
+                {% if medical_programs %}
+                {% for program in medical_programs %}
                 <div class="bg-light rounded text-center">
                     <div class="position-relative">
                         <img class="img-fluid rounded-top" src="/assets/hospital/hospital/img/price-1.jpg" alt="">
                         <div class="position-absolute w-100 h-100 top-50 start-50 translate-middle rounded-top d-flex flex-column align-items-center justify-content-center"
                             style="background: rgba(29, 42, 77, .8);">
-                            <h3 class="text-white">Pregnancy Care</h3>
+                            <h3 class="text-white">{{ program.title }}</h3>
                             <h1 class="display-4 text-white mb-0">
-                                <small class="align-top fw-normal"
-                                    style="font-size: 22px; line-height: 45px;">$</small>49<small
-                                    class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;">/
-                                    Year</small>
+                                {{ program.price or "Contact Us" }}
                             </h1>
                         </div>
                     </div>
                     <div class="text-center py-5">
-                        <p>Emergency Medical Treatment</p>
-                        <p>Highly Experienced Doctors</p>
-                        <p>Highest Success Rate</p>
-                        <p>Telephone Service</p>
+                        <p>{{ program.description or "Program details will be available soon." }}</p>
                         <a href="#!" class="btn btn-primary rounded-pill py-3 px-5 my-2">Apply Now</a>
                     </div>
                 </div>
-                <div class="bg-light rounded text-center">
-                    <div class="position-relative">
-                        <img class="img-fluid rounded-top" src="/assets/hospital/hospital/img/price-2.jpg" alt="">
-                        <div class="position-absolute w-100 h-100 top-50 start-50 translate-middle rounded-top d-flex flex-column align-items-center justify-content-center"
-                            style="background: rgba(29, 42, 77, .8);">
-                            <h3 class="text-white">Health Checkup</h3>
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top fw-normal"
-                                    style="font-size: 22px; line-height: 45px;">$</small>99<small
-                                    class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;">/
-                                    Year</small>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="text-center py-5">
-                        <p>Emergency Medical Treatment</p>
-                        <p>Highly Experienced Doctors</p>
-                        <p>Highest Success Rate</p>
-                        <p>Telephone Service</p>
-                        <a href="#!" class="btn btn-primary rounded-pill py-3 px-5 my-2">Apply Now</a>
-                    </div>
+                {% endfor %}
+                {% else %}
+                <div class="bg-light rounded text-center p-5">
+                    <h4 class="mb-3">No medical programs available</h4>
+                    <p class="m-0">Please check back later.</p>
                 </div>
-                <div class="bg-light rounded text-center">
-                    <div class="position-relative">
-                        <img class="img-fluid rounded-top" src="/assets/hospital/hospital/img/price-3.jpg" alt="">
-                        <div class="position-absolute w-100 h-100 top-50 start-50 translate-middle rounded-top d-flex flex-column align-items-center justify-content-center"
-                            style="background: rgba(29, 42, 77, .8);">
-                            <h3 class="text-white">Dental Care</h3>
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top fw-normal"
-                                    style="font-size: 22px; line-height: 45px;">$</small>149<small
-                                    class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;">/
-                                    Year</small>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="text-center py-5">
-                        <p>Emergency Medical Treatment</p>
-                        <p>Highly Experienced Doctors</p>
-                        <p>Highest Success Rate</p>
-                        <p>Telephone Service</p>
-                        <a href="#!" class="btn btn-primary rounded-pill py-3 px-5 my-2">Apply Now</a>
-                    </div>
-                </div>
-                <div class="bg-light rounded text-center">
-                    <div class="position-relative">
-                        <img class="img-fluid rounded-top" src="/assets/hospital/hospital/img/price-4.jpg" alt="">
-                        <div class="position-absolute w-100 h-100 top-50 start-50 translate-middle rounded-top d-flex flex-column align-items-center justify-content-center"
-                            style="background: rgba(29, 42, 77, .8);">
-                            <h3 class="text-white">Operation & Surgery</h3>
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top fw-normal"
-                                    style="font-size: 22px; line-height: 45px;">$</small>199<small
-                                    class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;">/
-                                    Year</small>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="text-center py-5">
-                        <p>Emergency Medical Treatment</p>
-                        <p>Highly Experienced Doctors</p>
-                        <p>Highest Success Rate</p>
-                        <p>Telephone Service</p>
-                        <a href="#!" class="btn btn-primary rounded-pill py-3 px-5 my-2">Apply Now</a>
-                    </div>
-                </div>
+                {% endif %}
             </div>
         </div>
     </div>

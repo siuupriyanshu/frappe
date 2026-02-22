@@ -9,189 +9,36 @@
                 <h1 class="display-4">Our Latest Medical Blog Posts</h1>
             </div>
             <div class="row g-5">
+                {% if blogs %}
+                {% for blog in blogs %}
                 <div class="col-xl-4 col-lg-6">
                     <div class="bg-light rounded overflow-hidden">
                         <img class="img-fluid w-100" src="/assets/hospital/hospital/img/blog-1.jpg" alt="">
                         <div class="p-4">
-                            <a class="h3 d-block mb-3" href="#!">Dolor clita vero elitr sea stet dolor justo diam</a>
-                            <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
-                                rebum clita rebum dolor stet amet justo</p>
+                            <a class="h3 d-block mb-3" href="#!">{{ blog.title }}</a>
+                            <p class="m-0">{{ blog.description or "Blog details will be available soon." }}</p>
                         </div>
                         <div class="d-flex justify-content-between border-top p-4">
                             <div class="d-flex align-items-center">
                                 <img class="rounded-circle me-2" src="/assets/hospital/hospital/img/user.jpg" width="25" height="25" alt="">
-                                <small>John Doe</small>
+                                <small>{{ blog.author or "Admin" }}</small>
                             </div>
                             <div class="d-flex align-items-center">
-                                <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>12345</small>
-                                <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>123</small>
+                                <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>{{ blog.views or "0" }}</small>
+                                <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>{{ blog.comments or "0" }}</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-6">
-                    <div class="bg-light rounded overflow-hidden">
-                        <img class="img-fluid w-100" src="/assets/hospital/hospital/img/blog-2.jpg" alt="">
-                        <div class="p-4">
-                            <a class="h3 d-block mb-3" href="#!">Dolor clita vero elitr sea stet dolor justo diam</a>
-                            <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
-                                rebum clita rebum dolor stet amet justo</p>
-                        </div>
-                        <div class="d-flex justify-content-between border-top p-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="/assets/hospital/hospital/img/user.jpg" width="25" height="25" alt="">
-                                <small>John Doe</small>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>12345</small>
-                                <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>123</small>
-                            </div>
-                        </div>
+                {% endfor %}
+                {% else %}
+                <div class="col-12">
+                    <div class="bg-light rounded text-center p-5">
+                        <h4 class="mb-3">No blog posts available</h4>
+                        <p class="m-0">Please check back later.</p>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-6">
-                    <div class="bg-light rounded overflow-hidden">
-                        <img class="img-fluid w-100" src="/assets/hospital/hospital/img/blog-3.jpg" alt="">
-                        <div class="p-4">
-                            <a class="h3 d-block mb-3" href="#!">Dolor clita vero elitr sea stet dolor justo diam</a>
-                            <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
-                                rebum clita rebum dolor stet amet justo</p>
-                        </div>
-                        <div class="d-flex justify-content-between border-top p-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="/assets/hospital/hospital/img/user.jpg" width="25" height="25" alt="">
-                                <small>John Doe</small>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>12345</small>
-                                <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>123</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6">
-                    <div class="bg-light rounded overflow-hidden">
-                        <img class="img-fluid w-100" src="/assets/hospital/hospital/img/blog-2.jpg" alt="">
-                        <div class="p-4">
-                            <a class="h3 d-block mb-3" href="#!">Dolor clita vero elitr sea stet dolor justo diam</a>
-                            <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
-                                rebum clita rebum dolor stet amet justo</p>
-                        </div>
-                        <div class="d-flex justify-content-between border-top p-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="/assets/hospital/hospital/img/user.jpg" width="25" height="25" alt="">
-                                <small>John Doe</small>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>12345</small>
-                                <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>123</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6">
-                    <div class="bg-light rounded overflow-hidden">
-                        <img class="img-fluid w-100" src="/assets/hospital/hospital/img/blog-3.jpg" alt="">
-                        <div class="p-4">
-                            <a class="h3 d-block mb-3" href="#!">Dolor clita vero elitr sea stet dolor justo diam</a>
-                            <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
-                                rebum clita rebum dolor stet amet justo</p>
-                        </div>
-                        <div class="d-flex justify-content-between border-top p-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="/assets/hospital/hospital/img/user.jpg" width="25" height="25" alt="">
-                                <small>John Doe</small>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>12345</small>
-                                <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>123</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6">
-                    <div class="bg-light rounded overflow-hidden">
-                        <img class="img-fluid w-100" src="/assets/hospital/hospital/img/blog-1.jpg" alt="">
-                        <div class="p-4">
-                            <a class="h3 d-block mb-3" href="#!">Dolor clita vero elitr sea stet dolor justo diam</a>
-                            <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
-                                rebum clita rebum dolor stet amet justo</p>
-                        </div>
-                        <div class="d-flex justify-content-between border-top p-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="/assets/hospital/hospital/img/user.jpg" width="25" height="25" alt="">
-                                <small>John Doe</small>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>12345</small>
-                                <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>123</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6">
-                    <div class="bg-light rounded overflow-hidden">
-                        <img class="img-fluid w-100" src="/assets/hospital/hospital/img/blog-3.jpg" alt="">
-                        <div class="p-4">
-                            <a class="h3 d-block mb-3" href="#!">Dolor clita vero elitr sea stet dolor justo diam</a>
-                            <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
-                                rebum clita rebum dolor stet amet justo</p>
-                        </div>
-                        <div class="d-flex justify-content-between border-top p-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="/assets/hospital/hospital/img/user.jpg" width="25" height="25" alt="">
-                                <small>John Doe</small>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>12345</small>
-                                <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>123</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6">
-                    <div class="bg-light rounded overflow-hidden">
-                        <img class="img-fluid w-100" src="/assets/hospital/hospital/img/blog-1.jpg" alt="">
-                        <div class="p-4">
-                            <a class="h3 d-block mb-3" href="#!">Dolor clita vero elitr sea stet dolor justo diam</a>
-                            <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
-                                rebum clita rebum dolor stet amet justo</p>
-                        </div>
-                        <div class="d-flex justify-content-between border-top p-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="/assets/hospital/hospital/img/user.jpg" width="25" height="25" alt="">
-                                <small>John Doe</small>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>12345</small>
-                                <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>123</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6">
-                    <div class="bg-light rounded overflow-hidden">
-                        <img class="img-fluid w-100" src="/assets/hospital/hospital/img/blog-2.jpg" alt="">
-                        <div class="p-4">
-                            <a class="h3 d-block mb-3" href="#!">Dolor clita vero elitr sea stet dolor justo diam</a>
-                            <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
-                                rebum clita rebum dolor stet amet justo</p>
-                        </div>
-                        <div class="d-flex justify-content-between border-top p-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="/assets/hospital/hospital/img/user.jpg" width="25" height="25" alt="">
-                                <small>John Doe</small>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>12345</small>
-                                <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>123</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 text-center">
-                    <button class="btn btn-primary py-3 px-5">Load More</button>
-                </div>
+                {% endif %}
             </div>
         </div>
     </div>

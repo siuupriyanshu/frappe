@@ -38,9 +38,17 @@
             <div class="col-lg-3 col-md-6">
                 <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
                     Newsletter</h4>
-                <form action="">
+                {% if newsletter_success %}
+                <div class="alert alert-success py-2" role="alert">{{ newsletter_success }}</div>
+                {% endif %}
+                {% if newsletter_error %}
+                <div class="alert alert-danger py-2" role="alert">{{ newsletter_error }}</div>
+                {% endif %}
+                <form method="post" action="">
+                    <input type="hidden" name="csrf_token" value="{{ frappe.session.csrf_token }}">
+                    <input type="hidden" name="newsletter_signup" value="1">
                     <div class="input-group">
-                        <input type="text" class="form-control p-3 border-0" placeholder="Your Email Address">
+                        <input type="email" name="email" class="form-control p-3 border-0" placeholder="Your Email Address" value="{{ newsletter_email or '' }}" required>
                         <button class="btn btn-primary">Sign Up</button>
                     </div>
                 </form>

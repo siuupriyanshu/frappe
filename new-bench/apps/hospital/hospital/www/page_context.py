@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from datetime import datetime
 import frappe
+from frappe import _
+from frappe.utils import validate_email_address
 
 
 ROUTES = {
@@ -49,6 +51,57 @@ def _set_appointment_context(context: dict) -> None:
 		context.doctors = []
 
 
+def _get_newsletter_doctype_name() -> str | None:
+	for candidate in ("newsletter signup", "Newsletter Signup"):
+		if frappe.db.exists("DocType", candidate):
+			return candidate
+	return None
+
+
+@frappe.whitelist(allow_guest=True)
+def submit_newsletter(email: str) -> dict:
+	email = (email or "").strip()
+	if not email:
+		frappe.throw(_("Email is required."))
+
+	if not validate_email_address(email, throw=False):
+		frappe.throw(_("Please enter a valid email address."))
+
+	doctype_name = _get_newsletter_doctype_name()
+	if not doctype_name:
+		frappe.throw(_("Newsletter doctype not found."))
+
+	if frappe.db.exists(doctype_name, {"email": email}):
+		return {"message": _("You are already subscribed.")}
+
+	doc = frappe.get_doc({"doctype": doctype_name, "email": email})
+	doc.insert(ignore_permissions=True)
+	frappe.db.commit()
+	return {"message": _("Subscribed successfully.")}
+
+
+def _set_newsletter_context(context: dict) -> None:
+	context.newsletter_success = getattr(context, "newsletter_success", None)
+	context.newsletter_error = getattr(context, "newsletter_error", None)
+	context.newsletter_email = getattr(context, "newsletter_email", "")
+
+	if not (frappe.request and frappe.request.method == "POST"):
+		return
+
+	if not frappe.form_dict.get("newsletter_signup"):
+		return
+
+	email = (frappe.form_dict.get("email") or "").strip()
+	context.newsletter_email = email
+
+	try:
+		result = submit_newsletter(email)
+		context.newsletter_success = result.get("message")
+		context.newsletter_email = ""
+	except Exception as error:
+		context.newsletter_error = str(error)
+
+
 def set_common_context(context: dict, page_key: str, page_title: str) -> dict:
 	context.no_cache = 1
 	context.routes = ROUTES
@@ -56,4 +109,5 @@ def set_common_context(context: dict, page_key: str, page_title: str) -> dict:
 	context.page_title = page_title
 	context.current_year = datetime.now().year
 	_set_appointment_context(context)
+	_set_newsletter_context(context)
 	return context
