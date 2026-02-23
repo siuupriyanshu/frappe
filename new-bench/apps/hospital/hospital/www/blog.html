@@ -15,7 +15,7 @@
                     <div class="bg-light rounded overflow-hidden">
                         <img class="img-fluid w-100" src="/assets/hospital/hospital/img/blog-1.jpg" alt="">
                         <div class="p-4">
-                            <a class="h3 d-block mb-3" href="#!">{{ blog.title }}</a>
+                            <a class="h3 d-block mb-3" href="/detail?blog={{ blog.name }}">{{ blog.title }}</a>
                             <p class="m-0">{{ blog.description or "Blog details will be available soon." }}</p>
                         </div>
                         <div class="d-flex justify-content-between border-top p-4">
@@ -43,4 +43,38 @@
         </div>
     </div>
     <!-- Blog End -->
+
+    <!-- Pagination -->
+<div class="d-flex justify-content-center my-5">
+    <nav class="d-inline-flex" aria-label="Pagination">
+        
+        {% if page > 1 %}
+            <a href="?page={{ page - 1 }}" 
+               class="relative inline-flex items-center rounded-l-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-20">
+                Previous
+            </a>
+        {% endif %}
+
+        {% for p in range(1, pages + 1) %}
+            {% if p == page %}
+                <span class="relative z-10 inline-flex items-center border border-blue-600 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-600 focus:z-20">
+                    {{ p }}
+                </span>
+            {% else %}
+                <a href="?page={{ p }}" 
+                   class="relative inline-flex items-center border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-20">
+                    {{ p }}
+                </a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page < pages %}
+            <a href="?page={{ page + 1 }}" 
+               class="relative inline-flex items-center rounded-r-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-20">
+                Next
+            </a>
+        {% endif %}
+
+    </nav>
+</div>
 {% endblock %}
