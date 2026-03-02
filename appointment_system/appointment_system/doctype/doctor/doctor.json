@@ -11,11 +11,14 @@
   "phone",
   "registration_number",
   "consultation_fee",
+  "available_days",
   "start_time",
   "end_time",
   "slot_duration",
   "bio",
-  "profile_page"
+  "profile_page",
+  "is_active",
+  "linked_user"
  ],
  "fields": [
   {
@@ -83,12 +86,30 @@
    "fieldname": "profile_page",
    "fieldtype": "Attach Image",
    "label": "Profile Page"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "linked_user",
+   "fieldtype": "Link",
+   "label": "Linked User",
+   "options": "User"
+  },
+  {
+   "fieldname": "available_days",
+   "fieldtype": "Select",
+   "label": "available_days",
+   "options": "Monday\nTuesday\nWednesday\nFriday\nSaturday"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-02-25 17:49:59.235904",
+ "modified": "2026-03-01 00:01:42.071034",
  "modified_by": "Administrator",
  "module": "Appointment System",
  "name": "Doctor",
