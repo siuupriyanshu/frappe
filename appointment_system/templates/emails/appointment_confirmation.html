@@ -1,0 +1,17 @@
+<p>Dear {{ patient_name }},</p>
+
+<p>Your appointment has been confirmed.</p>
+
+<ul>
+  <li><strong>Appointment ID:</strong> {{ name }}</li>
+  <li><strong>Doctor:</strong> {{ doctor_name }}</li>
+  <li><strong>Specialization:</strong> {{ specialization }}</li>
+  <li><strong>Date:</strong> {{ appointment_date }}</li>
+  <li><strong>Time:</strong> {{ appointment_time }}</li>
+</ul>
+
+{% if reason %}
+<p><strong>Reason:</strong> {{ reason }}</p>
+{% endif %}
+
+<p>Thank you,<br>Appointment System</p>

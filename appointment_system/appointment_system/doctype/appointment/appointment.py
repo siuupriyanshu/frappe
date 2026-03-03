@@ -8,7 +8,7 @@ from frappe.utils import get_datetime, now_datetime, getdate, nowdate
 
 
 class Appointment(Document):
-	def validate(self):
+    def validate(self):
         self.validate_future_date()
         self.validate_doctor_availability()
         self.validate_slot_conflict()
@@ -35,9 +35,17 @@ class Appointment(Document):
         if not doctor.is_active:
             frappe.throw(f'Dr. {doctor.full_name} is not currently accepting appointments')
         day = getdate(self.appointment_date).strftime('%A')
-        available = [d.day for d in doctor.available_days]
+        available_days = doctor.get('available_days')
+
+        if isinstance(available_days, list):
+            available = [d.day for d in available_days if getattr(d, 'day', None)]
+        elif isinstance(available_days, str) and available_days.strip():
+            available = [d.strip() for d in available_days.split(',')] if ',' in available_days else [available_days.strip()]
+        else:
+            available = []
+
         if day not in available:
-            frappe.throw(f'Dr. {doctor.full_name} is not available on {day}s')
+            frappe.throw(f'Dr. {doctor.full_name} is not available on {day}')
 
     def validate_slot_conflict(self):
         conflicts = frappe.db.count('Appointment', {

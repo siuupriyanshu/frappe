@@ -1,0 +1,14 @@
+Dear {{ patient_name }},
+
+Your appointment has been confirmed.
+
+Appointment ID: {{ name }}
+Doctor: {{ doctor_name }}
+Specialization: {{ specialization }}
+Date: {{ appointment_date }}
+Time: {{ appointment_time }}
+{% if reason %}Reason: {{ reason }}
+{% endif %}
+
+Thank you,
+Appointment System

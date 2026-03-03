@@ -250,17 +250,16 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
-doc_events = {
-    'Appointment': {
-        'before_submit': 'appointment_system.doctype.appointment.appointment.before_submit',
-        'on_cancel': 'appointment_system.doctype.appointment.appointment.on_cancel',
-        'after_insert': 'appointment_system.doctype.appointment.appointment.after_insert',
-    }
-}
+
 
 # Scheduled tasks
 scheduler_events = {
     'daily': [
-        'appointment_system.tasks.send_appointment_reminders'
+        'appointment_system.appointment_system.tasks.send_appointment_reminders'
     ]
 }
+
+website_route_rules = [
+    {'from_route': '/appointment-confirmed', 'to_route': 'appointment_confirmed'}
+]
+
